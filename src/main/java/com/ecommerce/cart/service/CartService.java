@@ -11,7 +11,7 @@ public interface CartService {
 	
 	List<Cart> getCartByUserId(String email);
 	
-	int countByUser_UserIdAndItem_ItemId(String email,int itemId);
+	int countByUserUserIdAndItemItemId(String email,int itemId);
 
 	Cart removeFromCart(String email, int itemId);
 

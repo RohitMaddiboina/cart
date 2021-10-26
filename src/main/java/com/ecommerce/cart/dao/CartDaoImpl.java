@@ -30,11 +30,11 @@ public class CartDaoImpl implements CartDao {
 	}
 	@Override
 	public Cart getCartByUseridAndItemid(int  userId, int itemId) {		
-		return cartRepo.findByUser_idAndItem_ItemId(userId, itemId);
+		return cartRepo.findByUserIdAndItemItemId(userId, itemId);
 	}
 	@Override
-	public int countByUser_UserIdAndItem_ItemId(int userId, int itemId) {		
-		return cartRepo.countByUser_idAndItem_ItemId(userId, itemId);
+	public int countByUserUserIdAndItemItemId(int userId, int itemId) {		
+		return cartRepo.countByUserIdAndItemItemId(userId, itemId);
 	}
 	@Override
 	public User getUserById(int userId) {
@@ -46,7 +46,7 @@ public class CartDaoImpl implements CartDao {
 	}
 	@Override
 	public List<Cart> getCartByUserId(int userId) {
-		return cartRepo.findByUser_id(userId);
+		return cartRepo.findByUserId(userId);
 	}
 	@Override
 	public int getCartCount(int userId) {
@@ -59,7 +59,7 @@ public class CartDaoImpl implements CartDao {
 	}
 	@Override
 	public int countByUserId(int userId) {
-		return cartRepo.countByUser_id(userId);
+		return cartRepo.countByUserId(userId);
 	}
 	@Override
 	public User getUserIdByEmailFromUser(String email) {		

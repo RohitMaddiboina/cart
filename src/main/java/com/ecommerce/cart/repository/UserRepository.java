@@ -10,8 +10,7 @@ import com.ecommerce.cart.model.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
 
-//	@Query(value="from User where email=:email")
-//	public User findByEmail(@Param("email") String email);
+
 	
 	public User findByEmail(String email);
 

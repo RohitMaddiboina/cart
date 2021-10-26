@@ -16,15 +16,21 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Table(name="user")
 @Entity
-@Getter
+
+@Setter
 @NoArgsConstructor
 public class User {
 
+	
+
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Getter
 	private int id;
     private String firstName;
     private  String lastName;
@@ -42,17 +48,41 @@ public class User {
     private String state;
     private int pincode;
     private String landmark;
-    private String security_questions;
-    private String security_answer;
+    @Column(name="security_questions")
+    private String securityQuestions;
+    @Column(name="security_answer")
+    private String securityAnswer;
+    private String roles;
     
-    public User(String firstName, String lastName, String email, String gender, Date dob, String password,
-            String phone, String houseNo, String street, String city, String district, String state, int pincode,
-            String landmark, String security_questions, String security_answer) {
-    super();
-}
     
 	@Getter(value = AccessLevel.NONE)
 	@OneToMany(mappedBy="user")
 	private List<Cart> carts; 
+	
+	
+	public User(String firstName, String lastName, String email, String gender, Date dob, String password, String phone,
+			String houseNo, String street, String city, String district, String state, int pincode, String landmark,
+			String securityQuestions, String securityAnswer, String roles) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.gender = gender;
+		this.dob = dob;
+		this.password = password;
+		this.phone = phone;
+		this.houseNo = houseNo;
+		this.street = street;
+		this.city = city;
+		this.district = district;
+		this.state = state;
+		this.pincode = pincode;
+		this.landmark = landmark;
+		this.securityQuestions = securityQuestions;
+		this.securityAnswer = securityAnswer;
+		this.roles = roles;
+	
+	}
+
 	
 }

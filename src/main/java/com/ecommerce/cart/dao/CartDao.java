@@ -11,7 +11,7 @@ public interface CartDao {
 	
 	Cart getCartByUseridAndItemid(int userId,int itemId);
 		
-	int countByUser_UserIdAndItem_ItemId(int userId,int itemId);
+	int countByUserUserIdAndItemItemId(int userId,int itemId);
 
 	User getUserById(int userId);
 	
