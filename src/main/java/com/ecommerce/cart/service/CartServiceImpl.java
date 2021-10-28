@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.ecommerce.cart.dao.CartDao;
 import com.ecommerce.cart.model.Cart;
-import com.ecommerce.cart.model.User;
 
 @Service
 public class CartServiceImpl implements CartService{
@@ -26,14 +25,7 @@ public class CartServiceImpl implements CartService{
 			return cartDao.addToCart(new Cart(cartDao.countNumberOfRows()+1,cartDao.getUserById(userId),cartDao.getItemById(itemId),1));
 		}
 	}
-	@Override
-	public int countByUserUserIdAndItemItemId(String email, int itemId) {
-		return 0;
-	}
-	@Override
-	public Cart getCartByUseridAndItemid(String email, int itemId) {
-		return null;
-	}
+
 	@Override
 	public List<Cart> getCartByUserId(String email) {
 		int userId=getUserIdByEmail(email);

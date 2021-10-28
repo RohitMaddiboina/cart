@@ -7,11 +7,9 @@ import com.ecommerce.cart.model.Cart;
 public interface CartService {
 	Cart addToCart(String email,int item);
 	
-	Cart getCartByUseridAndItemid(String email,int itemId);
 	
 	List<Cart> getCartByUserId(String email);
 	
-	int countByUserUserIdAndItemItemId(String email,int itemId);
 
 	Cart removeFromCart(String email, int itemId);
 

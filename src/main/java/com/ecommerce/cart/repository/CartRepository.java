@@ -11,6 +11,8 @@ import com.ecommerce.cart.model.Cart;
 @Repository
 public interface CartRepository extends JpaRepository<Cart, Integer>{
 	
+	public static final String CARTCOUNTQUERY = "select SUM(c.quantity) from Cart c where c.user_id=?1";
+	
 	public Cart findByUserIdAndItemItemId(int userId,int itemId);
 	
 	public int countByUserIdAndItemItemId(int userId,int itemId);
@@ -19,7 +21,7 @@ public interface CartRepository extends JpaRepository<Cart, Integer>{
 
 	public Cart deleteByUserIdAndItemItemId(int userId, int itemId);
 	
-	@Query(value="select SUM(c.quantity) from Cart c where c.user_id=?1 ",nativeQuery=true)
+	@Query(value=CARTCOUNTQUERY,nativeQuery=true)
 	public int getCartCount(int userId);
 
 	public int countByUserId(int userId);

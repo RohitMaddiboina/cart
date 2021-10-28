@@ -1,0 +1,40 @@
+server:
+  port: 8081
+spring:
+  profiles:
+    active: "test"
+  application:
+    name: cart-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/fassciodb
+    driverClassName: com.mysql.cj.jdbc.Driver
+    password: ENC(aQyPK+G8FM4xLXTjg5fEGtBmsvBHuIlwVk1ShCFCcanQb24zLUULDcKVTzDHF2/V)
+    username: root
+  jackson:
+    serialization:
+      FAIL_ON_EMPTY_BEANS: false
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+---
+server:
+  port : 8081
+
+  # Database configurations
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/usertestdb
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: ENC(aQyPK+G8FM4xLXTjg5fEGtBmsvBHuIlwVk1ShCFCcanQb24zLUULDcKVTzDHF2/V)
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+  config:
+    activate:
+      on-profile: test

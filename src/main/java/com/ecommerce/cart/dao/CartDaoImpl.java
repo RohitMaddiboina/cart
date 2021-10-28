@@ -1,6 +1,7 @@
 package com.ecommerce.cart.dao;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -46,7 +47,9 @@ public class CartDaoImpl implements CartDao {
 	}
 	@Override
 	public List<Cart> getCartByUserId(int userId) {
-		return cartRepo.findByUserId(userId);
+		return cartRepo.findByUserId(userId).stream()
+				.filter(cart->cart.getQuantity()>0)
+				.collect(Collectors.toList());
 	}
 	@Override
 	public int getCartCount(int userId) {
@@ -54,7 +57,7 @@ public class CartDaoImpl implements CartDao {
 	}
 	@Override
 	public int countByUser(int userId) {
-		// TODO Auto-generated method stub
+		
 		return 0;
 	}
 	@Override
@@ -63,8 +66,8 @@ public class CartDaoImpl implements CartDao {
 	}
 	@Override
 	public User getUserIdByEmailFromUser(String email) {		
-		User u=userRepo.findByEmail(email);
-		return u;
+		return userRepo.findByEmail(email);
+		
 	}
 	@Override
 	public long countNumberOfRows() {
