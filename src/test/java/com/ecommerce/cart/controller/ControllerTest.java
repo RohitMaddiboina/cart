@@ -23,8 +23,7 @@ class ControllerTest {
 	private MockMvc mvc;
 	
 	private static final String key="Authorization";
-	private static final String token="eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyb2hpdHRlamExOThAZ21haWwuY"
-			+ "29tIiwiZXhwIjoxNjM1NDMzNjg2LCJpYXQiOjE2MzUzNDcyODZ9.vyi2Q4i-BvLul073989Wr46sOrlmhIgs2nBVjhqk-Ec";
+	private static final String token="eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyb2hpdHRlamExOThAZ21haWwuY29tIiwiZXhwIjoxNjM1NTc1ODAwLCJpYXQiOjE2MzU0ODk0MDB9.a1fKF_GTvzHGw40dl6ZZihoHuJr2UBoN5VNW-nnqYXc";
 	
 
 	
