@@ -4,11 +4,12 @@ server:
   # Database configuration
 spring:
   application:
-    name: "cart"
+    name: cart-service
   datasource:
     url: jdbc:mysql://localhost:3306/fassciodb
     driver-class-name: com.mysql.jdbc.Driver
     username: root
+#    passowrd: 
     password: ENC(6T8Jg2gtPJ6QHL0Axx5eIbDm/ZllZNryUg0SMu16TMgyIUMnwDuGdj9MPQSyytW0)
   jackson:
     serialization:

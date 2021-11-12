@@ -5,7 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 
-@FeignClient(name = "UserClient",url = "http://localhost:8080/fasscio")
+@FeignClient(name = "user-service",url = "http://localhost:8080/fasscio")
 public interface UserClient {
 	
 	 public static final String   TOKEN_STRING  = "Authorization";

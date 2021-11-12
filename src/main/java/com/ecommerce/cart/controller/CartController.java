@@ -16,10 +16,8 @@ import com.ecommerce.cart.model.Cart;
 import com.ecommerce.cart.service.CartService;
 import com.ecommerce.cart.util.JwtUtil;
 
-//@CrossOrigin(origins = "http://localhost:4200")
+
 @RestController
-@RequestMapping("/cart")
-@CrossOrigin
 public class CartController implements ICartController {
 
 	@Autowired
