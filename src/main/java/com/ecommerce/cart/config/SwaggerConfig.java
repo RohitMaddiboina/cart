@@ -22,16 +22,21 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration	
 @EnableSwagger2
+
 public class SwaggerConfig {
 
+	
+	
 	@Bean
 	public Docket api() {
-		return new Docket(DocumentationType.SWAGGER_2)
-				.select()
-				.apis(RequestHandlerSelectors.basePackage("com.ecommerce"))
-				.paths(PathSelectors.any())
-				.build()
-				.apiInfo(apiDeatils());
+	    return new Docket(DocumentationType.SWAGGER_2)
+	      .apiInfo( apiDeatils())
+	      .securityContexts(Arrays.asList(securityContext()))
+	      .securitySchemes(Arrays.asList(apiKey()))
+	      .select()
+	      .apis(RequestHandlerSelectors.any())
+	      .paths(PathSelectors.any())
+	      .build();
 	}
 	
 	private ApiInfo apiDeatils()
