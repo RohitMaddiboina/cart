@@ -13,7 +13,7 @@ import com.ecommerce.cart.model.Cart;
 
 
 @RequestMapping("/cart")
-@CrossOrigin
+//@CrossOrigin
 public interface ICartController {
 
 	@PostMapping("/{itemId}")

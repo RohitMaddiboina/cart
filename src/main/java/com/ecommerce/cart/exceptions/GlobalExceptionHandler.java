@@ -11,6 +11,7 @@ import io.jsonwebtoken.ExpiredJwtException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.ObjectError;
@@ -20,21 +21,28 @@ import org.springframework.web.context.request.WebRequest;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
+	private final String s;
+	private final String t;
 
+	public GlobalExceptionHandler(@Value("${string.exceptionValue}")String s,@Value("${string.tokenValue}")String t) {
+	super();
+	this.s = s;
+	this.t=t;
+	}
 	@ExceptionHandler(ExpiredJwtException.class)
 	public ResponseEntity<String> handleExpiredJwtToken(ExpiredJwtException ex) {
-		return new ResponseEntity<>("Token Expired", HttpStatus.UNAUTHORIZED);
+		return new ResponseEntity<>(t, HttpStatus.UNAUTHORIZED);
 	}
 
 	@ExceptionHandler(FeignException.class)
 	public ResponseEntity<String> handleFiegnException(FeignException ex) {
-		return new ResponseEntity<>("Token Expired", HttpStatus.UNAUTHORIZED);
+		return new ResponseEntity<>(t, HttpStatus.UNAUTHORIZED);
 	}
 
 	protected ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex,
 			HttpHeaders headers, HttpStatus status, WebRequest request) {
 		List<String> details = new ArrayList<String>();
-		details.add("Required request body is missing");
+		details.add(s);
 		return new ResponseEntity<Object>(details, status);
 	}
 

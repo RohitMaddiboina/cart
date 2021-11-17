@@ -15,6 +15,7 @@ import com.ecommerce.cart.client.UserClient;
 import com.ecommerce.cart.model.Cart;
 import com.ecommerce.cart.service.CartService;
 import com.ecommerce.cart.util.JwtUtil;
+import springfox.documentation.annotations.ApiIgnore;
 
 
 @RestController
@@ -32,7 +33,7 @@ public class CartController implements ICartController {
 	public static final String BEARER = "Bearer";
 
 	@Override
-	public ResponseEntity<Cart> addToCart(@RequestHeader(TOKEN_STRING) String token,
+	public ResponseEntity<Cart> addToCart(@ApiIgnore @RequestHeader(TOKEN_STRING) String token,
 			@PathVariable("itemId") int itemId) {
 
 		if (token != null && token.startsWith(BEARER)
@@ -49,7 +50,7 @@ public class CartController implements ICartController {
 	}
 
 	@Override
-	public ResponseEntity<List<Cart>> getCartByEmail(@RequestHeader(TOKEN_STRING) String token) {
+	public ResponseEntity<List<Cart>> getCartByEmail(@ApiIgnore @RequestHeader(TOKEN_STRING) String token) {
 		if (token != null && token.startsWith(BEARER)
 				&& userClient.validateToken(token.substring(7)).getStatusCodeValue() == 200) {
 
@@ -63,7 +64,7 @@ public class CartController implements ICartController {
 	}
 
 	@Override
-	public ResponseEntity<Cart> removeFromCart(@RequestHeader(TOKEN_STRING) String token, @PathVariable int itemId) {
+	public ResponseEntity<Cart> removeFromCart(@ApiIgnore @RequestHeader(TOKEN_STRING) String token, @PathVariable int itemId) {
 		if (token != null && token.startsWith(BEARER)
 				&& userClient.validateToken(token.substring(7)).getStatusCodeValue() == 200) {
 
@@ -77,7 +78,7 @@ public class CartController implements ICartController {
 	}
 
 	@Override
-	public ResponseEntity<Cart> removeOneItemFromCart(@RequestHeader(TOKEN_STRING) String token,
+	public ResponseEntity<Cart> removeOneItemFromCart(@ApiIgnore @RequestHeader(TOKEN_STRING) String token,
 			@PathVariable int itemId) {
 		if (token != null && token.startsWith(BEARER)
 				&& userClient.validateToken(token.substring(7)).getStatusCodeValue() == 200) {
@@ -92,7 +93,7 @@ public class CartController implements ICartController {
 	}
 
 	@Override
-	public ResponseEntity<Integer> getCartCount(@RequestHeader(TOKEN_STRING) String token) {
+	public ResponseEntity<Integer> getCartCount(@ApiIgnore @RequestHeader(TOKEN_STRING) String token) {
 		if (token != null && token.startsWith(BEARER)
 				&& userClient.validateToken(token.substring(7)).getStatusCodeValue() == 200) {
 
